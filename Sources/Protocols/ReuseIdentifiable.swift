@@ -1,6 +1,6 @@
 //
 //  ReuseIdentifiable.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit

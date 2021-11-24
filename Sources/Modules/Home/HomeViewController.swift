@@ -1,6 +1,6 @@
 //
 //  HomeViewController.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit

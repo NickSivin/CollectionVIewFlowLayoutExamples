@@ -1,6 +1,6 @@
 //
 //  HomeCellViewModel.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit
@@ -11,14 +11,20 @@ struct HomeCellViewModel: CommonCellViewModel {
     }
     
     var title: String? {
-        return nil
+        return layoutInfo.title
     }
     
     var description: String? {
-        return nil
+        return layoutInfo.description
     }
     
     var icon: UIImage? {
-        return nil
+        return layoutInfo.icon
+    }
+    
+    private let layoutInfo: CollectionLayoutInfo
+    
+    init(layoutInfo: CollectionLayoutInfo) {
+        self.layoutInfo = layoutInfo
     }
 }

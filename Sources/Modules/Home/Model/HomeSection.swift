@@ -1,6 +1,6 @@
 //
 //  HomeSection.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import Foundation

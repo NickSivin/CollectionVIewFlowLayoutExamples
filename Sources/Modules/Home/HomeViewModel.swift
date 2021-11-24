@@ -1,15 +1,15 @@
 //
 //  HomeViewModel.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import Foundation
 
 protocol HomeViewModelDelegate: AnyObject {
-    func homeViewModel(_ viewModel: HomeViewModel, didRequestShowFlowLayoutExample layoutInfo: FlowLayoutInfo)
+    func homeViewModel(_ viewModel: HomeViewModel, didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo)
 }
 
-struct HomeViewModel {
+class HomeViewModel {
     // MARK: - Properties
     weak var delegate: HomeViewModelDelegate?
     
@@ -32,6 +32,6 @@ struct HomeViewModel {
     func selectElement(at indexPath: IndexPath) {
         let section = sections[indexPath.section]
         let element = section.elements[indexPath.row]
-        delegate?.homeViewModel(self, didRequestShowFlowLayoutExample: element.layoutInfo)
+        delegate?.homeViewModel(self, didRequestShowCollectionLayoutExample: element.layoutInfo)
     }
 }

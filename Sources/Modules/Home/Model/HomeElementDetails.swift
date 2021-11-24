@@ -1,11 +1,11 @@
 //
 //  HomeElementDetails.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import Foundation
 
 struct HomeElementDetails {
-    let layoutInfo: FlowLayoutInfo
+    let layoutInfo: CollectionLayoutInfo
     let cellViewModel: CommonCellViewModel
 }

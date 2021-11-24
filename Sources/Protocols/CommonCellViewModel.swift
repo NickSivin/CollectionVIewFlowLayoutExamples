@@ -1,6 +1,6 @@
 //
 //  CommonCellViewModel.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import Foundation

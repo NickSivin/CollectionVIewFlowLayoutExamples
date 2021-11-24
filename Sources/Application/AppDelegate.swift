@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit

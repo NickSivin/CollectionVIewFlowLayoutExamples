@@ -1,6 +1,6 @@
 //
 //  BaseViewController.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit

@@ -1,6 +1,6 @@
 //
 //  MainCoordinator.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import Foundation

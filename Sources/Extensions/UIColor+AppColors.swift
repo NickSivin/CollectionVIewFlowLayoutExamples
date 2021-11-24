@@ -1,6 +1,6 @@
 //
 //  UIColor+AppColors.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import Foundation

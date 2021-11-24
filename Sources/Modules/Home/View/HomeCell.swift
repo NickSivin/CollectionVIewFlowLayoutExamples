@@ -1,6 +1,6 @@
 //
 //  HomeCell.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit
@@ -60,11 +60,11 @@ class HomeCell: UITableViewCell, CommonCell {
     private func setupTitleLabel() {
         containerView.addSubview(titleLabel)
         titleLabel.constraintsSupport.makeConstraints { make in
-            make.leadingEqualTo(iconView, offset: 4)
+            make.leadingEqualTo(iconView, anchor: .trailing, offset: 16)
             make.topEqualTo(iconView)
             make.trailingEqualTo(containerView, offset: -4)
         }
-        titleLabel.numberOfLines = 1
+        titleLabel.font = .boldSystemFont(ofSize: 14)
     }
     
     private func setupDescriptionLabel() {
@@ -75,5 +75,7 @@ class HomeCell: UITableViewCell, CommonCell {
             make.trailingEqualTo(titleLabel)
             make.bottomEqualTo(containerView, offset: -16)
         }
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = .systemFont(ofSize: 12)
     }
 }

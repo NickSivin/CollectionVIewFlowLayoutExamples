@@ -1,6 +1,6 @@
 //
 //  BaseCoordinator.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 

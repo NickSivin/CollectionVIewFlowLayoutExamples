@@ -1,6 +1,6 @@
 //
 //  UIView+Autolayout.swift
-//  CollectionViewFlowLayoutExamples
+//  CollectionViewLayoutExamples
 //
 
 import UIKit
