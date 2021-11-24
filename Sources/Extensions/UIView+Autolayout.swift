@@ -16,15 +16,29 @@ enum LayoutYAxisAnchor {
 }
 
 extension UIView {
-    var layoutMaker: LayoutConstraintMaker {
-        return LayoutConstraintMaker(view: self)
+    var constraintsSupport: LayoutConstraintsSupport {
+        return LayoutConstraintsSupport(view: self)
+    }
+}
+
+struct LayoutConstraintsSupport {
+    private weak var view: UIView?
+    
+    init(view: UIView?) {
+        self.view = view
+        self.view?.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func makeConstraints(_ closure: (_ make: LayoutConstraintMaker) -> Void) {
+        let maker = LayoutConstraintMaker(view: view)
+        closure(maker)
     }
 }
 
 struct LayoutConstraintMaker {
     private weak var view: UIView?
     
-    init(view: UIView) {
+    init(view: UIView?) {
         self.view = view
     }
     
@@ -49,6 +63,19 @@ struct LayoutConstraintMaker {
     
     func bottomEqualTo(_ view: UIView, anchor: LayoutYAxisAnchor = .bottom, offset: CGFloat = 0) {
         self.view?.bottomAnchor.constraint(equalTo: view.makeLayoutAnchor(from: anchor), constant: offset).isActive = true
+    }
+    
+    func widthEqualTo(_ constant: CGFloat) {
+        self.view?.widthAnchor.constraint(equalToConstant: constant).isActive = true
+    }
+    
+    func heightEqualTo(_ constant: CGFloat) {
+        self.view?.heightAnchor.constraint(equalToConstant: constant).isActive = true
+    }
+    
+    func sizeEqualTo(_ constant: CGFloat) {
+        widthEqualTo(constant)
+        heightEqualTo(constant)
     }
     
     func widthEqualToHeight() {

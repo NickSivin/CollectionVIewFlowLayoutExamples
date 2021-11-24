@@ -2,7 +2,23 @@
 //  HomeCellViewModel.swift
 //  CollectionViewFlowLayoutExamples
 //
-//  Created by Никита Сивин on 19.11.2021.
-//
 
-import Foundation
+import UIKit
+
+struct HomeCellViewModel: CommonCellViewModel {
+    var reuseIdentifier: String {
+        return HomeCell.reuseIdentifier
+    }
+    
+    var title: String? {
+        return nil
+    }
+    
+    var description: String? {
+        return nil
+    }
+    
+    var icon: UIImage? {
+        return nil
+    }
+}

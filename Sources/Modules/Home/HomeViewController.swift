@@ -30,26 +30,36 @@ class HomeViewController: BaseViewController {
     
     private func setupTableView() {
         view.addSubview(tableView)
-        tableView.layoutMaker.edgesEqualTo(view)
+        tableView.constraintsSupport.makeConstraints { make in
+            make.edgesEqualTo(view)
+        }
+        tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
 }
 
+// MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectElement(at: indexPath)
+    }
 }
 
+// MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        <#code#>
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return viewModel.numberOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cellViewModel = viewModel.cellViewModel(at: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.reuseIdentifier, for: indexPath)
+        (cell as? CommonCell)?.configure(with: cellViewModel)
+        return cell
     }
 }
