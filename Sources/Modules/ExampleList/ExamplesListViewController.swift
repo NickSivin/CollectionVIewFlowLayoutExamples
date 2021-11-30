@@ -1,16 +1,16 @@
 //
-//  HomeViewController.swift
+//  ExampleListViewController.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class ExampleListViewController: BaseViewController {
     private let tableView = UITableView()
     
-    private let viewModel: HomeViewModel
+    private let viewModel: ExampleListViewModel
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: ExampleListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,6 +24,11 @@ class HomeViewController: BaseViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        deselectSelectedRow()
+    }
+    
     private func setup() {
         setupTableView()
     }
@@ -33,21 +38,28 @@ class HomeViewController: BaseViewController {
         tableView.constraintsSupport.makeConstraints { make in
             make.edgesEqualTo(view)
         }
-        tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.reuseIdentifier)
+        tableView.register(ExampleListCell.self, forCellReuseIdentifier: ExampleListCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    private func deselectSelectedRow() {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tableView.deselectRow(at: indexPath, animated: false)
+        }, completion: nil)
     }
 }
 
 // MARK: - UITableViewDelegate
-extension HomeViewController: UITableViewDelegate {
+extension ExampleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectElement(at: indexPath)
     }
 }
 
 // MARK: - UITableViewDataSource
-extension HomeViewController: UITableViewDataSource {
+extension ExampleListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
     }

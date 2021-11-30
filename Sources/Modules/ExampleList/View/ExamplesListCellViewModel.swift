@@ -1,13 +1,13 @@
 //
-//  HomeCellViewModel.swift
+//  ExampleListCellViewModel.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-struct HomeCellViewModel: CommonCellViewModel {
+struct ExampleListCellViewModel: CommonCellViewModel {
     var reuseIdentifier: String {
-        return HomeCell.reuseIdentifier
+        return ExampleListCell.reuseIdentifier
     }
     
     var title: String? {

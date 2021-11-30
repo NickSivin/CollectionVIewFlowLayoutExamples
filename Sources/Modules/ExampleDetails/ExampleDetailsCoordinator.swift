@@ -5,7 +5,7 @@
 
 import UIKit
 
-class DetailsCoordinator: BaseCoordinator {
+class ExampleDetailsCoordinator: BaseCoordinator {
     var childCoordinators: [BaseCoordinator] = []
     var onDidFinish: (() -> Void)?
     
@@ -18,12 +18,12 @@ class DetailsCoordinator: BaseCoordinator {
     }
     
     func start(animated: Bool) {
-        showDetailsScreen(animated: animated)
+        showExampleDetailsScreen(animated: animated)
     }
     
-    private func showDetailsScreen(animated: Bool) {
-        let viewModel = DetailsViewModel(layoutInfo: layoutInfo)
-        let viewController = DetailsViewController(viewModel: viewModel)
+    private func showExampleDetailsScreen(animated: Bool) {
+        let viewModel = ExampleDetailsViewModel(layoutInfo: layoutInfo)
+        let viewController = ExampleDetailsViewController(viewModel: viewModel)
         viewController.title = layoutInfo.title
         navigationController.pushViewController(viewController, animated: true)
     }

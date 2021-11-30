@@ -1,11 +1,11 @@
 //
-//  DetailsViewModel.swift
+//  ExampleDetailsViewModel.swift
 //  CollectionViewLayoutExamples
 //
 
 import Foundation
 
-struct DetailsViewModel {
+struct ExampleDetailsViewModel {
     private let layoutInfo: CollectionLayoutInfo
     
     init(layoutInfo: CollectionLayoutInfo) {

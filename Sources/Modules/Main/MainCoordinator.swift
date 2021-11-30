@@ -22,11 +22,11 @@ class MainCoordinator: BaseCoordinator {
     }
     
     func start(animated: Bool) {
-        showHomeScreen(animated: animated)
+        showExampleListScreen(animated: animated)
     }
     
-    private func showHomeScreen(animated: Bool) {
-        let coordinator = HomeCoordinator(navigationController: navigationController)
+    private func showExampleListScreen(animated: Bool) {
+        let coordinator = ExampleListCoordinator(navigationController: navigationController)
         add(child: coordinator)
         coordinator.start(animated: animated)
     }

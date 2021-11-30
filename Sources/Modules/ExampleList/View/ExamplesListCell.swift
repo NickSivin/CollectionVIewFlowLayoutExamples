@@ -1,11 +1,11 @@
 //
-//  HomeCell.swift
+//  ExampleListCell.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-class HomeCell: UITableViewCell, CommonCell {
+class ExampleListCell: UITableViewCell, CommonCell {
     // MARK: - Properties
     private let containerView = UIView()
     private let iconView = UIImageView()
@@ -24,7 +24,7 @@ class HomeCell: UITableViewCell, CommonCell {
     
     // MARK: - Public
     func configure(with viewModel: CommonCellViewModel) {
-        guard let viewModel = viewModel as? HomeCellViewModel else { return }
+        guard let viewModel = viewModel as? ExampleListCellViewModel else { return }
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
         iconView.image = viewModel.icon

@@ -1,12 +1,12 @@
 //
-//  HomeCoordinator.swift
+//  ExampleListCoordinator.swift
 //  CollectionViewLayoutExamples
 //
 
 import Foundation
 import UIKit
 
-class HomeCoordinator: BaseCoordinator {
+class ExampleListCoordinator: BaseCoordinator {
     var childCoordinators: [BaseCoordinator] = []
     var onDidFinish: (() -> Void)?
     
@@ -17,27 +17,28 @@ class HomeCoordinator: BaseCoordinator {
     }
     
     func start(animated: Bool) {
-        showHomeScreen(animated: animated)
+        showExampleListScreen(animated: animated)
     }
     
-    private func showHomeScreen(animated: Bool) {
-        let viewModel = HomeViewModel()
+    private func showExampleListScreen(animated: Bool) {
+        let viewModel = ExampleListViewModel()
         viewModel.delegate = self
-        let viewController = HomeViewController(viewModel: viewModel)
+        let viewController = ExampleListViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
     
     private func showDetailsScreen(layoutInfo: CollectionLayoutInfo) {
-        let coordinator = DetailsCoordinator(layoutInfo: layoutInfo, navigationController: navigationController)
+        let coordinator = ExampleDetailsCoordinator(layoutInfo: layoutInfo, navigationController: navigationController)
         add(child: coordinator)
         coordinator.start(animated: true)
     }
 }
 
 
-// MARK: - HomeViewModelDelegate
-extension HomeCoordinator: HomeViewModelDelegate {
-    func homeViewModel(_ viewModel: HomeViewModel, didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo) {
+// MARK: - ExampleListViewModelDelegate
+extension ExampleListCoordinator: ExampleListViewModelDelegate {
+    func exampleListViewModel(_ viewModel: ExampleListViewModel,
+                               didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo) {
         showDetailsScreen(layoutInfo: layoutInfo)
     }
 }

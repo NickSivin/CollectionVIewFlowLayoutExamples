@@ -1,23 +1,23 @@
 //
-//  HomeViewModel.swift
+//  ExampleListViewModel.swift
 //  CollectionViewLayoutExamples
 //
 
 import Foundation
 
-protocol HomeViewModelDelegate: AnyObject {
-    func homeViewModel(_ viewModel: HomeViewModel, didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo)
+protocol ExampleListViewModelDelegate: AnyObject {
+    func exampleListViewModel(_ viewModel: ExampleListViewModel, didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo)
 }
 
-class HomeViewModel {
+class ExampleListViewModel {
     // MARK: - Properties
-    weak var delegate: HomeViewModelDelegate?
+    weak var delegate: ExampleListViewModelDelegate?
     
     var numberOfSections: Int {
         return sections.count
     }
     
-    private let sections = HomeSectionsFactory.makeSections()
+    private let sections = ExampleListSectionsFactory.makeSections()
     
     func numberOfRows(in section: Int) -> Int {
         return sections[section].elements.count
@@ -32,6 +32,6 @@ class HomeViewModel {
     func selectElement(at indexPath: IndexPath) {
         let section = sections[indexPath.section]
         let element = section.elements[indexPath.row]
-        delegate?.homeViewModel(self, didRequestShowCollectionLayoutExample: element.layoutInfo)
+        delegate?.exampleListViewModel(self, didRequestShowCollectionLayoutExample: element.layoutInfo)
     }
 }

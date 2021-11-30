@@ -1,18 +1,18 @@
 //
-//  DetailsViewController.swift
+//  ExampleDetailsViewController.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-class DetailsViewController: BaseViewController {
+class ExampleDetailsViewController: BaseViewController {
     // MARK: - Properties
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    private let viewModel: DetailsViewModel
+    private let viewModel: ExampleDetailsViewModel
     
     // MARK: - Init
-    init(viewModel: DetailsViewModel) {
+    init(viewModel: ExampleDetailsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
