@@ -26,20 +26,10 @@ class HorizontalStickyHeaderCollectionLayout: BaseCollectionViewLayout {
     
     weak var delegate: HorizontalStickyHeaderCollectionLayoutDelegate?
     
-    var itemSize: CGSize = .zero
-    
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let allAttributes = cachedSupplementaryAttributes + cachedAttributes.reduce([]) { $0 + $1.value }
-        let expectedAttributes = allAttributes.filter { $0.frame.intersects(rect) }
-        return expectedAttributes
-    }
+    private let itemSize = CGSize(width: 120, height: 60)
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
-    }
-    
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-        return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
     }
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint,

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01D98DB6275F9F1200343DCA /* CellsBehaviourExamplesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DB5275F9F1200343DCA /* CellsBehaviourExamplesSection.swift */; };
+		01D98DBA275FA0E800343DCA /* ZoomableCellsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DB9275FA0E800343DCA /* ZoomableCellsViewModel.swift */; };
+		01D98DBC275FA20800343DCA /* ZoomableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBB275FA20800343DCA /* ZoomableCell.swift */; };
+		01D98DBE275FA21200343DCA /* ZoomableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBD275FA21200343DCA /* ZoomableCellViewModel.swift */; };
+		01D98DC0275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBF275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift */; };
 		91012CD7274E5B280067FD0E /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91012CD6274E5B280067FD0E /* ConfigurableView.swift */; };
 		91012CD9274E5B400067FD0E /* ConfigurableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91012CD8274E5B400067FD0E /* ConfigurableViewModel.swift */; };
 		91012CDC274E5C1E0067FD0E /* ExampleListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91012CDB274E5C1E0067FD0E /* ExampleListElement.swift */; };
@@ -51,6 +56,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01D98DB5275F9F1200343DCA /* CellsBehaviourExamplesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsBehaviourExamplesSection.swift; sourceTree = "<group>"; };
+		01D98DB9275FA0E800343DCA /* ZoomableCellsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCellsViewModel.swift; sourceTree = "<group>"; };
+		01D98DBB275FA20800343DCA /* ZoomableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCell.swift; sourceTree = "<group>"; };
+		01D98DBD275FA21200343DCA /* ZoomableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCellViewModel.swift; sourceTree = "<group>"; };
+		01D98DBF275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCellsCollectionLayout.swift; sourceTree = "<group>"; };
 		91012CD6274E5B280067FD0E /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
 		91012CD8274E5B400067FD0E /* ConfigurableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableViewModel.swift; sourceTree = "<group>"; };
 		91012CDB274E5C1E0067FD0E /* ExampleListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListElement.swift; sourceTree = "<group>"; };
@@ -107,6 +117,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01D98DAD275F9AAE00343DCA /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				01D98DAE275F9AC700343DCA /* HorizontalStickyHeader */,
+				01D98DB3275F9D2400343DCA /* ZoomableCells */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		01D98DAE275F9AC700343DCA /* HorizontalStickyHeader */ = {
+			isa = PBXGroup;
+			children = (
+				01D98DB2275F9D1500343DCA /* SupplementaryView */,
+				01D98DB1275F9B7E00343DCA /* Layout */,
+				01D98DB0275F9B7200343DCA /* ViewModel */,
+				01D98DAF275F9B6700343DCA /* Cell */,
+			);
+			path = HorizontalStickyHeader;
+			sourceTree = "<group>";
+		};
+		01D98DAF275F9B6700343DCA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				910FD932275F324E000B68DE /* HorizontalStickyHeaderCell.swift */,
+				910FD934275F33C8000B68DE /* HorizontalStickyHeaderCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		01D98DB0275F9B7200343DCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				910FD91D275E4870000B68DE /* HorizontalStickyHeaderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01D98DB1275F9B7E00343DCA /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				91BC98032757643700872E1E /* HorizontalStickyHeaderCollectionLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		01D98DB2275F9D1500343DCA /* SupplementaryView */ = {
+			isa = PBXGroup;
+			children = (
+				910FD939275F4F62000B68DE /* StickyHeaderSupplementaryView.swift */,
+				910FD93B275F517D000B68DE /* StickyHeaderSupplementaryViewModel.swift */,
+			);
+			path = SupplementaryView;
+			sourceTree = "<group>";
+		};
+		01D98DB3275F9D2400343DCA /* ZoomableCells */ = {
+			isa = PBXGroup;
+			children = (
+				01D98DB8275FA08600343DCA /* Layout */,
+				01D98DB7275FA08000343DCA /* ViewModel */,
+				01D98DB4275F9DA400343DCA /* Cell */,
+			);
+			path = ZoomableCells;
+			sourceTree = "<group>";
+		};
+		01D98DB4275F9DA400343DCA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				01D98DBB275FA20800343DCA /* ZoomableCell.swift */,
+				01D98DBD275FA21200343DCA /* ZoomableCellViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		01D98DB7275FA08000343DCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01D98DB9275FA0E800343DCA /* ZoomableCellsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01D98DB8275FA08600343DCA /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				01D98DBF275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		91012CD5274E5B170067FD0E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,23 +230,12 @@
 		91012CE3274E6DF20067FD0E /* ExampleDetails */ = {
 			isa = PBXGroup;
 			children = (
-				910FD938275F4E2D000B68DE /* SupplementaryView */,
-				910FD931275F31DC000B68DE /* Cell */,
 				910FD921275E494E000B68DE /* Model */,
-				910FD91C275E462B000B68DE /* ViewModel */,
 				91012CE4274E6E320067FD0E /* ExampleDetailsCoordinator.swift */,
 				91012CE6274E6E4D0067FD0E /* ExampleDetailsViewController.swift */,
 				91012CE8274E6E620067FD0E /* ExampleDetailsViewModel.swift */,
 			);
 			path = ExampleDetails;
-			sourceTree = "<group>";
-		};
-		910FD91C275E462B000B68DE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				910FD91D275E4870000B68DE /* HorizontalStickyHeaderViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		910FD921275E494E000B68DE /* Model */ = {
@@ -163,26 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				910FD925275E4B84000B68DE /* SupplementaryExamplesSection.swift */,
+				01D98DB5275F9F1200343DCA /* CellsBehaviourExamplesSection.swift */,
 			);
 			path = Sections;
-			sourceTree = "<group>";
-		};
-		910FD931275F31DC000B68DE /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				910FD932275F324E000B68DE /* HorizontalStickyHeaderCell.swift */,
-				910FD934275F33C8000B68DE /* HorizontalStickyHeaderCellViewModel.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		910FD938275F4E2D000B68DE /* SupplementaryView */ = {
-			isa = PBXGroup;
-			children = (
-				910FD939275F4F62000B68DE /* StickyHeaderSupplementaryView.swift */,
-				910FD93B275F517D000B68DE /* StickyHeaderSupplementaryViewModel.swift */,
-			);
-			path = SupplementaryView;
 			sourceTree = "<group>";
 		};
 		914BE223275649CD00251086 /* Strings */ = {
@@ -238,6 +309,7 @@
 				915F16B827477CD1004FB1FE /* Extensions */,
 				91012CD5274E5B170067FD0E /* Protocols */,
 				915F16B227477BDB004FB1FE /* Modules */,
+				01D98DAD275F9AAE00343DCA /* Examples */,
 				915F16BB27478804004FB1FE /* Model */,
 			);
 			path = Sources;
@@ -298,7 +370,7 @@
 		915F16BB27478804004FB1FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				91BC9800275744D400872E1E /* CollectionViewLayout */,
+				91BC98052757684600872E1E /* BaseCollectionViewLayout.swift */,
 				915F16C2274795E8004FB1FE /* ExampleDetailsConfiguration.swift */,
 				910FD936275F3ADB000B68DE /* ViewRegistrationInfo.swift */,
 			);
@@ -329,15 +401,6 @@
 				915F16CF2747ABC5004FB1FE /* ExamplesListCellViewModel.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		91BC9800275744D400872E1E /* CollectionViewLayout */ = {
-			isa = PBXGroup;
-			children = (
-				91BC98052757684600872E1E /* BaseCollectionViewLayout.swift */,
-				91BC98032757643700872E1E /* HorizontalStickyHeaderCollectionLayout.swift */,
-			);
-			path = CollectionViewLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,11 +483,14 @@
 				915F16C3274795E8004FB1FE /* ExampleDetailsConfiguration.swift in Sources */,
 				915F16D02747ABC5004FB1FE /* ExamplesListCellViewModel.swift in Sources */,
 				915F16CE2747ABBE004FB1FE /* ExamplesListCell.swift in Sources */,
+				01D98DB6275F9F1200343DCA /* CellsBehaviourExamplesSection.swift in Sources */,
 				91012CE9274E6E620067FD0E /* ExampleDetailsViewModel.swift in Sources */,
 				910FD930275F3010000B68DE /* DateFormatter+Shared.swift in Sources */,
 				910FD933275F324E000B68DE /* HorizontalStickyHeaderCell.swift in Sources */,
 				915F16D32747AC17004FB1FE /* UIColor+AppColors.swift in Sources */,
 				915F16CA27479B78004FB1FE /* MainCoordinator.swift in Sources */,
+				01D98DBC275FA20800343DCA /* ZoomableCell.swift in Sources */,
+				01D98DBE275FA21200343DCA /* ZoomableCellViewModel.swift in Sources */,
 				91BC98042757643700872E1E /* HorizontalStickyHeaderCollectionLayout.swift in Sources */,
 				910FD93A275F4F62000B68DE /* StickyHeaderSupplementaryView.swift in Sources */,
 				915F169B27477A85004FB1FE /* AppDelegate.swift in Sources */,
@@ -433,10 +499,12 @@
 				91012CE7274E6E4D0067FD0E /* ExampleDetailsViewController.swift in Sources */,
 				91012CE2274E5F430067FD0E /* ReuseIdentifiable.swift in Sources */,
 				91012CE5274E6E320067FD0E /* ExampleDetailsCoordinator.swift in Sources */,
+				01D98DC0275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift in Sources */,
 				910FD928275E4D4B000B68DE /* ImageAsset.swift in Sources */,
 				915F16BA27477CE3004FB1FE /* UIView+Autolayout.swift in Sources */,
 				910FD92E275F2A35000B68DE /* Date+Additional.swift in Sources */,
 				91012CD9274E5B400067FD0E /* ConfigurableViewModel.swift in Sources */,
+				01D98DBA275FA0E800343DCA /* ZoomableCellsViewModel.swift in Sources */,
 				915F16B727477C45004FB1FE /* ExampleListViewModel.swift in Sources */,
 				91012CDC274E5C1E0067FD0E /* ExampleListElement.swift in Sources */,
 				910FD935275F33C8000B68DE /* HorizontalStickyHeaderCellViewModel.swift in Sources */,

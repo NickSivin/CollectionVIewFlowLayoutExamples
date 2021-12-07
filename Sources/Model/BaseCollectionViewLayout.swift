@@ -26,7 +26,9 @@ class BaseCollectionViewLayout: UICollectionViewLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return nil
+        let allAttributes = cachedSupplementaryAttributes + cachedAttributes.reduce([]) { $0 + $1.value }
+        let expectedAttributes = allAttributes.filter { $0.frame.intersects(rect) }
+        return expectedAttributes
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {

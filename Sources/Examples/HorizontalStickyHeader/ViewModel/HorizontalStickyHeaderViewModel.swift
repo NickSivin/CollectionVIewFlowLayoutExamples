@@ -29,7 +29,6 @@ class HorizontalStickyHeaderViewModel: ExampleDetailsViewModel {
     
     private func makeCollectionViewLayout() -> UICollectionViewLayout {
         let layout = HorizontalStickyHeaderCollectionLayout()
-        layout.itemSize = CGSize(width: 120, height: 60)
         layout.delegate = self
         return layout
     }

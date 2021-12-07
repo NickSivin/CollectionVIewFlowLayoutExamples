@@ -55,6 +55,7 @@ struct ExampleListStrings: LocalizedStrings {
     enum Keys: String, LocalizedKeyConvertable {
         case title
         case supplementarySectionTitle
+        case cellsBehaviourSectionTitle
     }
     
     var tableName: String? {
