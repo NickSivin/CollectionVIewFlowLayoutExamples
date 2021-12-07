@@ -6,7 +6,8 @@
 import Foundation
 
 protocol ExampleListViewModelDelegate: AnyObject {
-    func exampleListViewModel(_ viewModel: ExampleListViewModel, didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo)
+    func exampleListViewModel(_ viewModel: ExampleListViewModel,
+                              didRequestShowCollectionLayoutExample exampleDetailsConfiguration: ExampleDetailsConfiguration)
 }
 
 class ExampleListViewModel {
@@ -23,7 +24,7 @@ class ExampleListViewModel {
         return sections[section].elements.count
     }
     
-    func cellViewModel(at indexPath: IndexPath) -> CommonCellViewModel {
+    func cellViewModel(at indexPath: IndexPath) -> ConfigurableViewModel {
         let section = sections[indexPath.section]
         let element = section.elements[indexPath.row]
         return element.cellViewModel
@@ -32,6 +33,6 @@ class ExampleListViewModel {
     func selectElement(at indexPath: IndexPath) {
         let section = sections[indexPath.section]
         let element = section.elements[indexPath.row]
-        delegate?.exampleListViewModel(self, didRequestShowCollectionLayoutExample: element.layoutInfo)
+        delegate?.exampleListViewModel(self, didRequestShowCollectionLayoutExample: element.exampleDetailsConfiguration)
     }
 }

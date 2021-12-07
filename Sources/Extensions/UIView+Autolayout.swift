@@ -15,6 +15,13 @@ enum LayoutYAxisAnchor {
     case bottom
 }
 
+enum LayoutCenterAnchor {
+    case xAnchor
+    case yAnchor
+    case both
+}
+
+
 extension UIView {
     var constraintsSupport: LayoutConstraintsSupport {
         return LayoutConstraintsSupport(view: self)
@@ -63,6 +70,18 @@ struct LayoutConstraintMaker {
     
     func bottomEqualTo(_ view: UIView, anchor: LayoutYAxisAnchor = .bottom, offset: CGFloat = 0) {
         self.view?.bottomAnchor.constraint(equalTo: view.makeLayoutAnchor(from: anchor), constant: offset).isActive = true
+    }
+    
+    func centerEqualTo(_ view: UIView, anchor: LayoutCenterAnchor = .both, offset: CGFloat = 0) {
+        switch anchor {
+        case .xAnchor:
+            self.view?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset).isActive = true
+        case .yAnchor:
+            self.view?.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset).isActive = true
+        case .both:
+            self.view?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset).isActive = true
+            self.view?.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset).isActive = true
+        }
     }
     
     func widthEqualTo(_ constant: CGFloat) {

@@ -6,6 +6,6 @@
 import Foundation
 
 struct ExampleListElement {
-    let layoutInfo: CollectionLayoutInfo
-    let cellViewModel: CommonCellViewModel
+    let exampleDetailsConfiguration: ExampleDetailsConfiguration
+    let cellViewModel: ConfigurableViewModel
 }

@@ -1,10 +1,10 @@
 //
-//  CommonCellViewModel.swift
+//  ConfigurableViewModel.swift
 //  CollectionViewLayoutExamples
 //
 
 import Foundation
 
-protocol CommonCellViewModel {
+protocol ConfigurableViewModel {
     var reuseIdentifier: String { get }
 }

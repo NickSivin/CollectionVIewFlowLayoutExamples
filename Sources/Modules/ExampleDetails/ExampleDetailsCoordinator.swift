@@ -9,11 +9,11 @@ class ExampleDetailsCoordinator: BaseCoordinator {
     var childCoordinators: [BaseCoordinator] = []
     var onDidFinish: (() -> Void)?
     
-    private let layoutInfo: CollectionLayoutInfo
+    private let exampleDetailsConfiguration: ExampleDetailsConfiguration
     private let navigationController: UINavigationController
     
-    init(layoutInfo: CollectionLayoutInfo, navigationController: UINavigationController) {
-        self.layoutInfo = layoutInfo
+    init(exampleDetailsConfiguration: ExampleDetailsConfiguration, navigationController: UINavigationController) {
+        self.exampleDetailsConfiguration = exampleDetailsConfiguration
         self.navigationController = navigationController
     }
     
@@ -22,9 +22,8 @@ class ExampleDetailsCoordinator: BaseCoordinator {
     }
     
     private func showExampleDetailsScreen(animated: Bool) {
-        let viewModel = ExampleDetailsViewModel(layoutInfo: layoutInfo)
-        let viewController = ExampleDetailsViewController(viewModel: viewModel)
-        viewController.title = layoutInfo.title
+        let viewController = ExampleDetailsViewController(viewModel: exampleDetailsConfiguration.viewModel)
+        viewController.title = exampleDetailsConfiguration.title
         navigationController.pushViewController(viewController, animated: true)
     }
 }

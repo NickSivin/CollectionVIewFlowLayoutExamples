@@ -71,7 +71,7 @@ extension ExampleListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellViewModel = viewModel.cellViewModel(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.reuseIdentifier, for: indexPath)
-        (cell as? CommonCell)?.configure(with: cellViewModel)
+        (cell as? ConfigurableView)?.configure(with: cellViewModel)
         return cell
     }
 }

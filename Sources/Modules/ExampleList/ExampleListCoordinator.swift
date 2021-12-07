@@ -24,12 +24,13 @@ class ExampleListCoordinator: BaseCoordinator {
         let viewModel = ExampleListViewModel()
         viewModel.delegate = self
         let viewController = ExampleListViewController(viewModel: viewModel)
-        viewController.title = Localized.exampleList.string(forKey: "title")
+        viewController.title = Localized.exampleList.string(forKey: .title)
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    private func showDetailsScreen(layoutInfo: CollectionLayoutInfo) {
-        let coordinator = ExampleDetailsCoordinator(layoutInfo: layoutInfo, navigationController: navigationController)
+    private func showDetailsScreen(exampleDetailsConfiguration: ExampleDetailsConfiguration) {
+        let coordinator = ExampleDetailsCoordinator(exampleDetailsConfiguration: exampleDetailsConfiguration,
+                                                    navigationController: navigationController)
         add(child: coordinator)
         coordinator.start(animated: true)
     }
@@ -39,7 +40,7 @@ class ExampleListCoordinator: BaseCoordinator {
 // MARK: - ExampleListViewModelDelegate
 extension ExampleListCoordinator: ExampleListViewModelDelegate {
     func exampleListViewModel(_ viewModel: ExampleListViewModel,
-                               didRequestShowCollectionLayoutExample layoutInfo: CollectionLayoutInfo) {
-        showDetailsScreen(layoutInfo: layoutInfo)
+                               didRequestShowCollectionLayoutExample exampleDetailsConfiguration: ExampleDetailsConfiguration) {
+        showDetailsScreen(exampleDetailsConfiguration: exampleDetailsConfiguration)
     }
 }

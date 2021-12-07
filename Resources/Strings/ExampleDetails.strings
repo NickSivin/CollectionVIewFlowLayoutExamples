@@ -2,3 +2,6 @@
   ExampleDetails.strings
   CollectionViewLayoutExamples
 */
+
+"horizontal.sticky.header.title" = "Horizontal Sticky Header";
+"horizontal.sticky.header.description" = "Horizontal sticky header";

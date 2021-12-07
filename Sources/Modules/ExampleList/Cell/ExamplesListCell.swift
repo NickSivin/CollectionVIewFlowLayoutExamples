@@ -5,7 +5,7 @@
 
 import UIKit
 
-class ExampleListCell: UITableViewCell, CommonCell {
+class ExampleListCell: UITableViewCell, ConfigurableView {
     // MARK: - Properties
     private let containerView = UIView()
     private let iconView = UIImageView()
@@ -23,7 +23,7 @@ class ExampleListCell: UITableViewCell, CommonCell {
     }
     
     // MARK: - Public
-    func configure(with viewModel: CommonCellViewModel) {
+    func configure(with viewModel: ConfigurableViewModel) {
         guard let viewModel = viewModel as? ExampleListCellViewModel else { return }
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
