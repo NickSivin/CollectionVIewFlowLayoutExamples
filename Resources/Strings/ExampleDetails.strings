@@ -4,4 +4,7 @@
 */
 
 "horizontal.sticky.header.title" = "Horizontal Sticky Header";
-"horizontal.sticky.header.description" = "Horizontal sticky header";
+"horizontal.sticky.header.description" = "Horizontal sticky description";
+
+"zoomable.cells.title" = "Zoomable Cells Title";
+"zoomable.cells.description" = "Zoomable cells description";

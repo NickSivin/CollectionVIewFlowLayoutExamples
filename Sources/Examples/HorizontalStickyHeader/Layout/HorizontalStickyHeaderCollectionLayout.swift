@@ -20,10 +20,6 @@ class HorizontalStickyHeaderCollectionLayout: BaseCollectionViewLayout {
       return true
     }
     
-    override var collectionViewContentSize: CGSize {
-        return contentBounds.size
-    }
-    
     weak var delegate: HorizontalStickyHeaderCollectionLayoutDelegate?
     
     private let itemSize = CGSize(width: 120, height: 60)

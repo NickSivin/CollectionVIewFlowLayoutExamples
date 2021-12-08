@@ -69,6 +69,8 @@ struct ExampleDetailsStrings: LocalizedStrings {
     enum Keys: String, LocalizedKeyConvertable {
         case horizontalStickyHeaderTitle
         case horizontalStickyHeaderDescription
+        case zoomableCellsTitle
+        case zoomableCellsDescription
     }
     
     var tableName: String? {

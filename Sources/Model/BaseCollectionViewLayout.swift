@@ -7,6 +7,10 @@ import Foundation
 import UIKit
 
 class BaseCollectionViewLayout: UICollectionViewLayout {
+    override var collectionViewContentSize: CGSize {
+        return contentBounds.size
+    }
+    
     var contentBounds: CGRect = .zero
     var cachedAttributes: [Int: [UICollectionViewLayoutAttributes]] = [:]
     var cachedSupplementaryAttributes: [UICollectionViewLayoutAttributes] = []

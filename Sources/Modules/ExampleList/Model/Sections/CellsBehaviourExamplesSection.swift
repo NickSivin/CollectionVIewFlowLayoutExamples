@@ -17,10 +17,10 @@ struct CellsBehaviourExamplesSection: ExampleListSection {
     }
     
     private func makeZoomableCellsElement() -> ExampleListElement {
-        let viewModel = HorizontalStickyHeaderViewModel()
+        let viewModel = ZoomableCellsViewModel()
         let strings = Localized.exampleDetails.self
-        let configuration = ExampleDetailsConfiguration(title: strings.string(forKey: .horizontalStickyHeaderTitle),
-                                                        description: strings.string(forKey: .horizontalStickyHeaderDescription),
+        let configuration = ExampleDetailsConfiguration(title: strings.string(forKey: .zoomableCellsTitle),
+                                                        description: strings.string(forKey: .zoomableCellsDescription),
                                                         icon: ImageAsset.image(named: .stickyHeader),
                                                         viewModel: viewModel)
         

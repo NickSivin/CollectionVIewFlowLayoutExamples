@@ -22,6 +22,7 @@ class ZoomableCellsViewModel: ExampleDetailsViewModel {
     }
     
     private func makeSections() -> [ExampleDetailsSection] {
-        return []
+        let elements = Array(repeating: ExampleDetailsElement(cellViewModel: ZoomableCellViewModel()), count: 20)
+        return [ExampleDetailsSection(elements: elements)]
     }
 }

@@ -8,7 +8,8 @@ import UIKit
 struct ExampleListSectionsFactory {
     static func makeSections() -> [ExampleListSection] {
         return [
-            SupplementaryViewExamplesSection()
+            SupplementaryViewExamplesSection(),
+            CellsBehaviourExamplesSection()
         ]
     }
 }
