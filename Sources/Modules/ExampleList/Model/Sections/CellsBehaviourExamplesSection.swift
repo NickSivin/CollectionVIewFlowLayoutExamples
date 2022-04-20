@@ -12,15 +12,15 @@ struct CellsBehaviourExamplesSection: ExampleListSection {
     
     var elements: [ExampleListElement] {
         return [
-            makeZoomableCellsElement()
+            makeConveyorCellsElement()
         ]
     }
     
-    private func makeZoomableCellsElement() -> ExampleListElement {
-        let viewModel = ZoomableCellsViewModel()
+    private func makeConveyorCellsElement() -> ExampleListElement {
+        let viewModel = ConveyorCellsViewModel()
         let strings = Localized.exampleDetails.self
-        let configuration = ExampleDetailsConfiguration(title: strings.string(forKey: .zoomableCellsTitle),
-                                                        description: strings.string(forKey: .zoomableCellsDescription),
+        let configuration = ExampleDetailsConfiguration(title: strings.string(forKey: .conveyorCellsTitle),
+                                                        description: strings.string(forKey: .conveyorCellsDescription),
                                                         icon: ImageAsset.image(named: .stickyHeader),
                                                         viewModel: viewModel)
         

@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		01D98DB6275F9F1200343DCA /* CellsBehaviourExamplesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DB5275F9F1200343DCA /* CellsBehaviourExamplesSection.swift */; };
-		01D98DBA275FA0E800343DCA /* ZoomableCellsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DB9275FA0E800343DCA /* ZoomableCellsViewModel.swift */; };
-		01D98DBC275FA20800343DCA /* ZoomableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBB275FA20800343DCA /* ZoomableCell.swift */; };
-		01D98DBE275FA21200343DCA /* ZoomableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBD275FA21200343DCA /* ZoomableCellViewModel.swift */; };
-		01D98DC0275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBF275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift */; };
+		01D98DBA275FA0E800343DCA /* ConveyorCellsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DB9275FA0E800343DCA /* ConveyorCellsViewModel.swift */; };
+		01D98DBC275FA20800343DCA /* ConveyorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBB275FA20800343DCA /* ConveyorCell.swift */; };
+		01D98DBE275FA21200343DCA /* ConveyorCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBD275FA21200343DCA /* ConveyorCellViewModel.swift */; };
+		01D98DC0275FA46D00343DCA /* ConveyorCellsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D98DBF275FA46D00343DCA /* ConveyorCellsCollectionLayout.swift */; };
 		91012CD7274E5B280067FD0E /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91012CD6274E5B280067FD0E /* ConfigurableView.swift */; };
 		91012CD9274E5B400067FD0E /* ConfigurableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91012CD8274E5B400067FD0E /* ConfigurableViewModel.swift */; };
 		91012CDC274E5C1E0067FD0E /* ExampleListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91012CDB274E5C1E0067FD0E /* ExampleListElement.swift */; };
@@ -57,10 +57,10 @@
 
 /* Begin PBXFileReference section */
 		01D98DB5275F9F1200343DCA /* CellsBehaviourExamplesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsBehaviourExamplesSection.swift; sourceTree = "<group>"; };
-		01D98DB9275FA0E800343DCA /* ZoomableCellsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCellsViewModel.swift; sourceTree = "<group>"; };
-		01D98DBB275FA20800343DCA /* ZoomableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCell.swift; sourceTree = "<group>"; };
-		01D98DBD275FA21200343DCA /* ZoomableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCellViewModel.swift; sourceTree = "<group>"; };
-		01D98DBF275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableCellsCollectionLayout.swift; sourceTree = "<group>"; };
+		01D98DB9275FA0E800343DCA /* ConveyorCellsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConveyorCellsViewModel.swift; sourceTree = "<group>"; };
+		01D98DBB275FA20800343DCA /* ConveyorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConveyorCell.swift; sourceTree = "<group>"; };
+		01D98DBD275FA21200343DCA /* ConveyorCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConveyorCellViewModel.swift; sourceTree = "<group>"; };
+		01D98DBF275FA46D00343DCA /* ConveyorCellsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConveyorCellsCollectionLayout.swift; sourceTree = "<group>"; };
 		91012CD6274E5B280067FD0E /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
 		91012CD8274E5B400067FD0E /* ConfigurableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableViewModel.swift; sourceTree = "<group>"; };
 		91012CDB274E5C1E0067FD0E /* ExampleListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListElement.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				01D98DAE275F9AC700343DCA /* HorizontalStickyHeader */,
-				01D98DB3275F9D2400343DCA /* ZoomableCells */,
+				01D98DB3275F9D2400343DCA /* ConveyorCells */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -171,21 +171,21 @@
 			path = SupplementaryView;
 			sourceTree = "<group>";
 		};
-		01D98DB3275F9D2400343DCA /* ZoomableCells */ = {
+		01D98DB3275F9D2400343DCA /* ConveyorCells */ = {
 			isa = PBXGroup;
 			children = (
 				01D98DB8275FA08600343DCA /* Layout */,
 				01D98DB7275FA08000343DCA /* ViewModel */,
 				01D98DB4275F9DA400343DCA /* Cell */,
 			);
-			path = ZoomableCells;
+			path = ConveyorCells;
 			sourceTree = "<group>";
 		};
 		01D98DB4275F9DA400343DCA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				01D98DBB275FA20800343DCA /* ZoomableCell.swift */,
-				01D98DBD275FA21200343DCA /* ZoomableCellViewModel.swift */,
+				01D98DBB275FA20800343DCA /* ConveyorCell.swift */,
+				01D98DBD275FA21200343DCA /* ConveyorCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 		01D98DB7275FA08000343DCA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				01D98DB9275FA0E800343DCA /* ZoomableCellsViewModel.swift */,
+				01D98DB9275FA0E800343DCA /* ConveyorCellsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 		01D98DB8275FA08600343DCA /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				01D98DBF275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift */,
+				01D98DBF275FA46D00343DCA /* ConveyorCellsCollectionLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -489,8 +489,8 @@
 				910FD933275F324E000B68DE /* HorizontalStickyHeaderCell.swift in Sources */,
 				915F16D32747AC17004FB1FE /* UIColor+AppColors.swift in Sources */,
 				915F16CA27479B78004FB1FE /* MainCoordinator.swift in Sources */,
-				01D98DBC275FA20800343DCA /* ZoomableCell.swift in Sources */,
-				01D98DBE275FA21200343DCA /* ZoomableCellViewModel.swift in Sources */,
+				01D98DBC275FA20800343DCA /* ConveyorCell.swift in Sources */,
+				01D98DBE275FA21200343DCA /* ConveyorCellViewModel.swift in Sources */,
 				91BC98042757643700872E1E /* HorizontalStickyHeaderCollectionLayout.swift in Sources */,
 				910FD93A275F4F62000B68DE /* StickyHeaderSupplementaryView.swift in Sources */,
 				915F169B27477A85004FB1FE /* AppDelegate.swift in Sources */,
@@ -499,12 +499,12 @@
 				91012CE7274E6E4D0067FD0E /* ExampleDetailsViewController.swift in Sources */,
 				91012CE2274E5F430067FD0E /* ReuseIdentifiable.swift in Sources */,
 				91012CE5274E6E320067FD0E /* ExampleDetailsCoordinator.swift in Sources */,
-				01D98DC0275FA46D00343DCA /* ZoomableCellsCollectionLayout.swift in Sources */,
+				01D98DC0275FA46D00343DCA /* ConveyorCellsCollectionLayout.swift in Sources */,
 				910FD928275E4D4B000B68DE /* ImageAsset.swift in Sources */,
 				915F16BA27477CE3004FB1FE /* UIView+Autolayout.swift in Sources */,
 				910FD92E275F2A35000B68DE /* Date+Additional.swift in Sources */,
 				91012CD9274E5B400067FD0E /* ConfigurableViewModel.swift in Sources */,
-				01D98DBA275FA0E800343DCA /* ZoomableCellsViewModel.swift in Sources */,
+				01D98DBA275FA0E800343DCA /* ConveyorCellsViewModel.swift in Sources */,
 				915F16B727477C45004FB1FE /* ExampleListViewModel.swift in Sources */,
 				91012CDC274E5C1E0067FD0E /* ExampleListElement.swift in Sources */,
 				910FD935275F33C8000B68DE /* HorizontalStickyHeaderCellViewModel.swift in Sources */,

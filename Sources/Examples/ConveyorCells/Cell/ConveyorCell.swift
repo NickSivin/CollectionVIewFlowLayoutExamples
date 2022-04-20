@@ -1,11 +1,11 @@
 //
-//  ZoomableCell.swift
+//  ConveyorCell.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-class ZoomableCell: UICollectionViewCell, ConfigurableView {
+class ConveyorCell: UICollectionViewCell, ConfigurableView {
     private let containerView = UIView()
     
     override init(frame: CGRect) {
@@ -18,7 +18,7 @@ class ZoomableCell: UICollectionViewCell, ConfigurableView {
     }
     
     func configure(with viewModel: ConfigurableViewModel) {
-        guard let viewModel = viewModel as? ZoomableCellViewModel else { return }
+        guard let viewModel = viewModel as? ConveyorCellViewModel else { return }
     }
     
     private func setup() {
@@ -33,7 +33,7 @@ class ZoomableCell: UICollectionViewCell, ConfigurableView {
             make.topEqualTo(self)
             make.bottomEqualTo(self)
         }
-        containerView.backgroundColor = .gray
+        containerView.backgroundColor = [.blue, .gray, .red, .green, .brown, .lightGray].randomElement() ?? .gray
         containerView.layer.cornerRadius = 8
     }
 }

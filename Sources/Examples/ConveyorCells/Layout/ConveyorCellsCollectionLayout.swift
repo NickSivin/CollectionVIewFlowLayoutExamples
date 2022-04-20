@@ -1,11 +1,11 @@
 //
-//  ZoomableCellsCollectionLayout.swift
+//  ConveyorCellsCollectionLayout.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-class ZoomableCellsCollectionLayout: BaseCollectionViewLayout {
+class ConveyorCellsCollectionLayout: BaseCollectionViewLayout {
     private var itemSize: CGSize = .zero
     private let spacing: CGFloat = 16
     private let topContentInset: CGFloat = 16
@@ -16,6 +16,13 @@ class ZoomableCellsCollectionLayout: BaseCollectionViewLayout {
     
     private var yContentOffset: CGFloat {
         return (collectionView?.contentOffset.y ?? 0) + topAdjustedContentInset
+    }
+    
+    private var visibleAreaHeight: CGFloat {
+        guard let collectionView = collectionView else { return 0 }
+        return collectionView.bounds.height
+        - collectionView.adjustedContentInset.top
+        - collectionView.adjustedContentInset.bottom
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
@@ -77,25 +84,21 @@ class ZoomableCellsCollectionLayout: BaseCollectionViewLayout {
         let expectedYValue = sectionOffset + CGFloat(itemIndex) * itemSize.height + CGFloat(itemIndex) * spacing
         let nextYValue = sectionOffset + CGFloat(nextItemIndex) * itemSize.height + CGFloat(nextItemIndex) * spacing
         
-        let visibleHeight = collectionView.bounds.height
-            - collectionView.adjustedContentInset.top
-            - collectionView.adjustedContentInset.bottom
-        
         let yAnchor = yContentOffset + topContentInset
         let zoomAreaHeight = itemSize.height + spacing
         let zoomThreshold = yAnchor + zoomAreaHeight
         
-        let isZoomAvailable = (yAnchor...zoomThreshold).contains(nextYValue)
+        let isZoomAvailable = ((yAnchor - itemSize.height)...zoomThreshold).contains(nextYValue)
         
         let prevItemIndex = itemIndex - 1
         let prevYValue = sectionOffset + CGFloat(prevItemIndex) * itemSize.height + CGFloat(prevItemIndex) * spacing
         
-        let yAnchorBottom = yContentOffset + topContentInset + visibleHeight - zoomAreaHeight
+        let yAnchorBottom = yContentOffset + topContentInset + visibleAreaHeight - zoomAreaHeight
         let zoomThresholdBottom = yAnchorBottom - zoomAreaHeight
         
-        let isZoomAvailableBottom = (zoomThresholdBottom...yAnchorBottom).contains(prevYValue)
+        let isZoomAvailableBottom = (zoomThresholdBottom...(yAnchorBottom + itemSize.height)).contains(prevYValue)
         
-        let yValue: CGFloat
+        var yValue: CGFloat
         let distancePassed: CGFloat
         
         if isZoomAvailable {
@@ -109,6 +112,8 @@ class ZoomableCellsCollectionLayout: BaseCollectionViewLayout {
             distancePassed = 0
         }
         
+        yValue = correctedYValueForUpperBound(yValue: correctedYValueForLowerBound(yValue: yValue))
+        
         let minZoomScale: CGFloat = 0.75
         let zoomPercent = (isZoomAvailable || isZoomAvailableBottom) ? (distancePassed * minZoomScale.inversed / zoomAreaHeight).inversed : 1
         
@@ -119,6 +124,7 @@ class ZoomableCellsCollectionLayout: BaseCollectionViewLayout {
         
         let attributes = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: itemIndex, section: sectionIndex))
         attributes.frame = frame
+        attributes.zIndex = Int(zoomPercent * 100)
         
         var sectionAttributes = cachedAttributes[sectionIndex] ?? []
         sectionAttributes.append(attributes)
@@ -129,12 +135,19 @@ class ZoomableCellsCollectionLayout: BaseCollectionViewLayout {
     }
     
     private func makeItemSize(itemsCount: Int, collectionView: UICollectionView) -> CGSize {
-        let visibleHeight = collectionView.bounds.height
-            - collectionView.adjustedContentInset.top
-            - collectionView.adjustedContentInset.bottom
         let spacingTotalHeight = spacing * CGFloat(itemsCount - 1)
-        let height = (visibleHeight - spacingTotalHeight - topContentInset) / CGFloat(itemsCount)
+        let height = (visibleAreaHeight - spacingTotalHeight - topContentInset) / CGFloat(itemsCount)
         return CGSize(width: collectionView.bounds.width, height: height)
+    }
+    
+    private func correctedYValueForUpperBound(yValue: CGFloat) -> CGFloat{
+        guard yValue <= -topContentInset else { return yValue }
+        return -(itemSize.height + spacing)
+    }
+    
+    private func correctedYValueForLowerBound(yValue: CGFloat) -> CGFloat {
+        guard yValue >= yContentOffset + topContentInset + visibleAreaHeight else { return yValue }
+        return collectionViewContentSize.height + spacing
     }
 }
 

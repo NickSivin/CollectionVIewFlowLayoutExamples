@@ -1,15 +1,15 @@
 //
-//  ZoomableCellsViewModel.swift
+//  ConveyorCellsViewModel.swift
 //  CollectionViewLayoutExamples
 //
 
 import UIKit
 
-class ZoomableCellsViewModel: ExampleDetailsViewModel {
+class ConveyorCellsViewModel: ExampleDetailsViewModel {
     var cellsRegistrationInfo: [ViewRegistrationInfo] {
         return [
-            ViewRegistrationInfo(viewClass: ZoomableCell.self,
-                                 viewIdentifier: ZoomableCell.reuseIdentifier)
+            ViewRegistrationInfo(viewClass: ConveyorCell.self,
+                                 viewIdentifier: ConveyorCell.reuseIdentifier)
         ]
     }
     
@@ -17,12 +17,12 @@ class ZoomableCellsViewModel: ExampleDetailsViewModel {
     private(set) lazy var sections = makeSections()
     
     private func makeCollectionViewLayout() -> UICollectionViewLayout {
-        let layout = ZoomableCellsCollectionLayout()
+        let layout = ConveyorCellsCollectionLayout()
         return layout
     }
     
     private func makeSections() -> [ExampleDetailsSection] {
-        let elements = Array(repeating: ExampleDetailsElement(cellViewModel: ZoomableCellViewModel()), count: 20)
+        let elements = Array(repeating: ExampleDetailsElement(cellViewModel: ConveyorCellViewModel()), count: 50)
         return [ExampleDetailsSection(elements: elements)]
     }
 }
