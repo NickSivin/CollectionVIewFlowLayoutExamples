@@ -22,7 +22,7 @@ class ConveyorCellsViewModel: ExampleDetailsViewModel {
     }
     
     private func makeSections() -> [ExampleDetailsSection] {
-        let elements = Array(repeating: ExampleDetailsElement(cellViewModel: ConveyorCellViewModel()), count: 50)
-        return [ExampleDetailsSection(elements: elements)]
+        let items = Array(repeating: 0, count: 50).map { _ in ExampleDetailsItem(cellViewModel: ConveyorCellViewModel()) }
+        return [ExampleDetailsSection(items: items)]
     }
 }

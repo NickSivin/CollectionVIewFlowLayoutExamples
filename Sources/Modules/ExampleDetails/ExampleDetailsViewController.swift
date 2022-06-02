@@ -6,14 +6,41 @@
 import UIKit
 
 class ExampleDetailsViewController: BaseViewController {
+    // MARK: - Types
+    typealias SectionIdentifier = ExampleDetailsSection
+    typealias ItemIdentifier = ExampleDetailsItem
+    typealias DataSource = UICollectionViewDiffableDataSource<SectionIdentifier, ItemIdentifier>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<SectionIdentifier, ItemIdentifier>
+    
     // MARK: - Properties
     private let collectionView: UICollectionView
+    private let cellProvider: DataSource.CellProvider
+    private let supplementaryViewProvider: DataSource.SupplementaryViewProvider
+    private let dataSource: DataSource
     
     private let viewModel: ExampleDetailsViewModel
     
     // MARK: - Init
     init(viewModel: ExampleDetailsViewModel) {
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewModel.collectionViewLayout)
+        self.cellProvider = { collectionView, indexPath, item -> UICollectionViewCell in
+            let cellViewModel = item.cellViewModel
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellViewModel.reuseIdentifier, for: indexPath)
+            (cell as? ConfigurableView)?.configure(with: cellViewModel)
+            return cell
+        }
+        self.supplementaryViewProvider = { collectionView, elementKind, indexPath -> UICollectionReusableView? in
+            guard let supplementaryViewModel = viewModel.supplementaryViewModelForSection(at: indexPath) else {
+                return UICollectionReusableView()
+            }
+            
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                       withReuseIdentifier: supplementaryViewModel.reuseIdentifier,
+                                                                       for: indexPath)
+            (view as? ConfigurableView)?.configure(with: supplementaryViewModel)
+            return view
+        }
+        self.dataSource = DataSource(collectionView: collectionView, cellProvider: cellProvider)
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,6 +59,7 @@ class ExampleDetailsViewController: BaseViewController {
     private func setup() {
         view.backgroundColor = .white
         setupCollcetionView()
+        reloadData()
     }
     
     private func setupCollcetionView() {
@@ -47,8 +75,11 @@ class ExampleDetailsViewController: BaseViewController {
                 make.bottomEqualTo(view)
             }
         }
+        
+        dataSource.supplementaryViewProvider = supplementaryViewProvider
+        
         collectionView.delegate = self
-        collectionView.dataSource = self
+        collectionView.dataSource = dataSource
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         
@@ -62,41 +93,17 @@ class ExampleDetailsViewController: BaseViewController {
                                     withReuseIdentifier: $0.viewIdentifier)
         }
     }
+    
+    private func reloadData() {
+        var snapshot = Snapshot()
+        snapshot.appendSections(viewModel.sections)
+        
+        viewModel.sections.forEach { snapshot.appendItems($0.items, toSection: $0) }
+        dataSource.apply(snapshot)
+    }
 }
 
 // MARK: - UICollectionViewDelegate
 extension ExampleDetailsViewController: UICollectionViewDelegate {
     
-}
-
-// MARK: - UICollectionViewDataSource
-extension ExampleDetailsViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.numberOfSections
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(in: section)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellViewModel = viewModel.cellViewModelForRow(at: indexPath)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellViewModel.reuseIdentifier, for: indexPath)
-        (cell as? ConfigurableView)?.configure(with: cellViewModel)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        viewForSupplementaryElementOfKind kind: String,
-                        at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let supplementaryViewModel = viewModel.supplementaryViewModelForSection(at: indexPath) else {
-            return UICollectionReusableView()
-        }
-        
-        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                   withReuseIdentifier: supplementaryViewModel.reuseIdentifier,
-                                                                   for: indexPath)
-        (view as? ConfigurableView)?.configure(with: supplementaryViewModel)
-        return view
-    }
 }

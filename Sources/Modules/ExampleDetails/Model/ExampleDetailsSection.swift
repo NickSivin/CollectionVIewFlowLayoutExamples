@@ -5,13 +5,25 @@
 
 import Foundation
 
-struct ExampleDetailsSection {
+struct ExampleDetailsSection: Hashable {
     let supplementaryViewModel: ConfigurableViewModel?
-    let elements: [ExampleDetailsElement]
+    let items: [ExampleDetailsItem]
+    
+    private let uuid = UUID()
     
     init(supplementaryViewModel: ConfigurableViewModel? = nil,
-         elements: [ExampleDetailsElement]) {
+         items: [ExampleDetailsItem]) {
         self.supplementaryViewModel = supplementaryViewModel
-        self.elements = elements
+        self.items = items
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+    }
+}
+
+extension ExampleDetailsSection {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.uuid == rhs.uuid
     }
 }

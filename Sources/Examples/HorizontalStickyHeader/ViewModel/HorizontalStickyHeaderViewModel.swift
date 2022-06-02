@@ -46,9 +46,9 @@ class HorizontalStickyHeaderViewModel: ExampleDetailsViewModel {
             }
             .compactMap {
                 guard let dates = groupedDates[$0], let firstDate = dates.first else { return nil }
-                let elements = makeElements(from: dates.reversed())
+                let items = makeItems(from: dates.reversed())
                 let supplementaryViewModel = StickyHeaderSupplementaryViewModel(date: firstDate)
-                return ExampleDetailsSection(supplementaryViewModel: supplementaryViewModel, elements: elements)
+                return ExampleDetailsSection(supplementaryViewModel: supplementaryViewModel, items: items)
             }
     }
     
@@ -74,10 +74,10 @@ class HorizontalStickyHeaderViewModel: ExampleDetailsViewModel {
         return result
     }
     
-    private func makeElements(from dates: [Date]) -> [ExampleDetailsElement] {
+    private func makeItems(from dates: [Date]) -> [ExampleDetailsItem] {
         return dates.map {
             let cellViewModel = HorizontalStickyHeaderCellViewModel(date: $0)
-            return ExampleDetailsElement(cellViewModel: cellViewModel)
+            return ExampleDetailsItem(cellViewModel: cellViewModel)
         }
     }
 }

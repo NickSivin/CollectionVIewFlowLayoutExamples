@@ -34,12 +34,12 @@ extension ExampleDetailsViewModel {
     
     func numberOfRows(in sectionIndex: Int) -> Int {
         let section = sections[sectionIndex]
-        return section.elements.count
+        return section.items.count
     }
     
     func cellViewModelForRow(at indexPath: IndexPath) -> ConfigurableViewModel {
         let section = sections[indexPath.section]
-        let element = section.elements[indexPath.row]
+        let element = section.items[indexPath.row]
         return element.cellViewModel
     }
     
